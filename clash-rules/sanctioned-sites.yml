@@ -17,3 +17,8 @@ payload:
   - DOMAIN-SUFFIX,digitalocean.com
 # IPinfo
   - DOMAIN-SUFFIX,ipinfo.io  
+# Epic Games
+  - DOMAIN-SUFFIX,epicgames.com
+  - DOMAIN-SUFFIX,epicgames.dev
+  - DOMAIN-SUFFIX,epicgames.net
+  - DOMAIN-SUFFIX,unrealengine.com
