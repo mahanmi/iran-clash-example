@@ -15,8 +15,6 @@ payload:
   - DOMAIN-SUFFIX,tospotify.com
 # Digital Ocean
   - DOMAIN-SUFFIX,digitalocean.com
-# IPinfo
-  - DOMAIN-SUFFIX,ipinfo.io  
 # Epic Games
   - DOMAIN-SUFFIX,epicgames.com
   - DOMAIN-SUFFIX,epicgames.dev
