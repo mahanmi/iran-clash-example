@@ -7,12 +7,16 @@ payload:
   - DOMAIN-SUFFIX,telegra.ph 
   - DOMAIN-SUFFIX,telegram.me 
   - DOMAIN-SUFFIX,telegram.org 
+  - DOMAIN-SUFFIX,telegram-cdn.org
+  - DOMAIN-SUFFIX,telesco.pe
+  - DOMAIN-SUFFIX,tg.dev
   - IP-CIDR,91.108.4.0/22
   - IP-CIDR,91.108.8.0/22 
   - IP-CIDR,91.108.12.0/22 
   - IP-CIDR,91.108.16.0/22 
   - IP-CIDR,91.108.56.0/22 
   - IP-CIDR,149.154.160.0/20 
+  - IP-CIDR,185.76.151.0/24
   - DST-PORT,1400  # voice call
   
   # Facebook
@@ -81,18 +85,16 @@ payload:
   - DOMAIN-SUFFIX,app-measurement.com #Google Play
   - DOMAIN-SUFFIX,gstatic.com #Google Play
   - PROCESS-NAME,com.android.vending  
-  
-
-  - IP-CIDR,31.13.0.0/16  #meta ip ranges {
+# meta ip ranges
+  - IP-CIDR,31.13.0.0/16  
   - IP-CIDR,66.220.0.0/16
   - IP-CIDR,69.63.0.0/16
   - IP-CIDR,69.171.0.0/16
   - IP-CIDR,74.119.76.0/22
   - IP-CIDR,173.252.0.0/16
-  - IP-CIDR,204.15.20.0/22    #}
-
-
-  - IP-CIDR,157.240.0.0/16 #whatsapp ip range {
+  - IP-CIDR,204.15.20.0/22
+# whatsapp ip range 
+  - IP-CIDR,157.240.0.0/16
   - IP-CIDR,209.95.0.0/16
   - IP-CIDR,208.43.0.0/16
   - IP-CIDR,192.155.0.0/16
@@ -105,4 +107,22 @@ payload:
   - IP-CIDR,64.233.0.0/16
   - IP-CIDR,50.22.0.0/16
   - IP-CIDR,50.23.0.0/16
-  - IP-CIDR,50.97.0.0/16 #}
+  - IP-CIDR,50.97.0.0/16
+
+# Sanctioned sites(They aren't blocked from the gov but you cann't access them from iran)
+
+# Spotify
+  - DOMAIN-SUFFIX,pscdn.co
+  - DOMAIN-SUFFIX,scdn.co
+  - DOMAIN-SUFFIX,spoti.fi
+  - DOMAIN-SUFFIX,spotify.com
+  - DOMAIN-SUFFIX,spotifycdn.com
+  - DOMAIN-SUFFIX,spotifycdn.net
+  - DOMAIN-SUFFIX,spotifycharts.com
+  - DOMAIN-SUFFIX,spotifycodes.com
+  - DOMAIN-SUFFIX,spotifyjobs.com
+  - DOMAIN-SUFFIX,spotifynewsroom.jp
+  - DOMAIN-SUFFIX,spotilocal.com
+  - DOMAIN-SUFFIX,tospotify.com
+# Digital Ocean
+  - DOMAIN-SUFFIX,digitalocean.com
