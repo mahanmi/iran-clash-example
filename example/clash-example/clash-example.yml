@@ -49,7 +49,7 @@ proxy-groups:
   - DIRECT
   - REJECT
   type: select
-- name: "♻️ Automatic \U0001F1E9\U0001F1EA DE"
+- name: "♻️ Automatic"
   type: fallback
   url: 'https://youtube.com'
   interval: 300
