@@ -82,6 +82,7 @@ rule-providers:
     type: http
     url: https://raw.githubusercontent.com/mahanmi/iran-clash-example/main/clash-rules/sanctioned-sites.yml
 rules:
+- IP-CIDR,10.10.34.0/24
 - RULE-SET,blocked,OnFiltererdSites
 - RULE-SET,sanctioned-sites,OnSanctionedSites
 - GEOIP,IR,OnIranSites
