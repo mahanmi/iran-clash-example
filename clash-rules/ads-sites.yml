@@ -1304,33 +1304,32 @@ payload:
  -DOMAIN-SUFFIX,uploado.xyz
  -DOMAIN-SUFFIX,yasell.biz
  -DOMAIN-SUFFIX,zula.ir
-# --- Amazon
+# Amazon
  -DOMAIN-SUFFIX,adtago.s3.amazonaws.com
  -DOMAIN-SUFFIX,analyticsengine.s3.amazonaws.com
  -DOMAIN-SUFFIX,analytics.s3.amazonaws.com
  -DOMAIN-SUFFIX,advice-ads.s3.amazonaws.com
  -DOMAIN-SUFFIX,advertising-api-eu.amazon.com
-# --- Google Ads
+# Google Ads
  -DOMAIN-SUFFIX,pagead2.googlesyndication.com
  -DOMAIN-SUFFIX,adservice.google.com
  -DOMAIN-SUFFIX,pagead2.googleadservices.com
  -DOMAIN-SUFFIX,afs.googlesyndication.com
-# ---Doubleclick.net
+# Doubleclick.net
  -DOMAIN-SUFFIX,stats.g.doubleclick.net
  -DOMAIN-SUFFIX,ad.doubleclick.net
  -DOMAIN-SUFFIX,static.doubleclick.net
  -DOMAIN-SUFFIX,m.doubleclick.net
  -DOMAIN-SUFFIX,mediavisor.doubleclick.net
-# --- Adcolony
+# Adcolony
  -DOMAIN-SUFFIX,ads30.adcolony.com
  -DOMAIN-SUFFIX,adc3-launch.adcolony.com
  -DOMAIN-SUFFIX,events3alt.adcolony.com
  -DOMAIN-SUFFIX,wd.adcolony.com
-# --- Media.net
+# Media.net
  -DOMAIN-SUFFIX,static.media.net
  -DOMAIN-SUFFIX,media.net
  -DOMAIN-SUFFIX,adservetx.media.net
-###################
 #youtube add
  -DOMAIN-SUFFIX,www.googletagservices.com
  -DOMAIN-SUFFIX,www-googletagmanager.l.google.com
