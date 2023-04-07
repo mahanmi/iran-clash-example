@@ -27,7 +27,7 @@ proxy-groups:
   - "YOUR_PROXY_NAME"
   type: select
 - interval: 300
-  name: OnFiltererdSites
+  name: OnBlockedSites
   proxies:
   - Proxy
   - DIRECT
@@ -57,7 +57,7 @@ proxy-groups:
   - "YOUR_PROXY_NAME"
   strategy: consistent-hashing
 rule-providers:
-  blocked:
+  blocked-sites:
     behavior: classical
     interval: 432000
     path: ./ruleset/blocked.yaml
@@ -82,8 +82,8 @@ rule-providers:
     type: http
     url: https://raw.githubusercontent.com/mahanmi/iran-clash-example/main/clash-rules/sanctioned-sites.yml
 rules:
-- IP-CIDR,10.10.34.0/24,Proxy
-- RULE-SET,blocked,OnFiltererdSites
+- IP-CIDR,10.10.34.0/24,OnBlockedSites
+- RULE-SET,blocked-sites,OnBlockedSites
 - RULE-SET,sanctioned-sites,OnSanctionedSites
 - GEOIP,IR,OnIranSites
 - DOMAIN-SUFFIX,.ir,OnIranSites
