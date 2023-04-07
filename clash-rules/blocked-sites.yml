@@ -1,8 +1,4 @@
 payload:
-#Blocked Site IPs 
-  - IP-CIDR,10.10.34.0/24
-#GEOIP Blocked IPs
-  - GEOIP,category-porn #XD
 # Telegram
   - DOMAIN-SUFFIX,t.me 
   - DOMAIN-SUFFIX,tdesktop.com 
@@ -21,7 +17,7 @@ payload:
   - IP-CIDR,185.76.151.0/24
   - DST-PORT,1400  # voice call
   
-  # Facebook
+# Facebook
   - DOMAIN-KEYWORD,facebook
   - DOMAIN-SUFFIX,fbcdn.net
   - DOMAIN-SUFFIX,fb.com
@@ -34,7 +30,6 @@ payload:
   - DOMAIN-SUFFIX,fbe2e.com
   - DOMAIN-SUFFIX,fbinfra.net
   - DOMAIN-SUFFIX,fbwat.ch
-
 #Youtube
   - DOMAIN-SUFFIX,youtube.com
   - DOMAIN-SUFFIX,yt.com
@@ -44,7 +39,6 @@ payload:
   - DOMAIN-SUFFIX,ytimg.com
   - PROCESS-NAME,com.google.android.youtube
   - PROCESS-NAME,com.vanced.android.youtube
-
 # Well-known sites 
   - DOMAIN-SUFFIX,bbc.com
   - DOMAIN-SUFFIX,bbcpersian.com
@@ -121,7 +115,7 @@ payload:
   - DOMAIN-SUFFIX,twitchcdn.net
   - DOMAIN-SUFFIX,twitchsvc-staging.tech
   - DOMAIN-SUFFIX,twitchsvc.net
-  # Pornhub
+# Pornhub
   - PROCESS-NAME,com.app.pornhub
   - DOMAIN-SUFFIX,phncdn.com
   - DOMAIN-SUFFIX,phprcdn.com
@@ -131,3 +125,4 @@ payload:
   - DOMAIN-SUFFIX,pornhubapparel.com
   - DOMAIN-SUFFIX,pornhubpremium.com
   - DOMAIN-SUFFIX,pronstore.com
+  - GEOIP,category-porn
