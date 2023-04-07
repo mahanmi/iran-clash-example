@@ -2,7 +2,7 @@ payload:
 #Blocked Site IPs 
   - IP-CIDR,10.10.34.0/24
 #GEOIP Blocked IPs
-  -GEOIP,category-porn #XD
+  - GEOIP,category-porn #XD
 # Telegram
   - DOMAIN-SUFFIX,t.me 
   - DOMAIN-SUFFIX,tdesktop.com 
