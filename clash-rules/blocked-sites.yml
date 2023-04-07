@@ -107,3 +107,15 @@ payload:
   - IP-CIDR,50.22.0.0/16
   - IP-CIDR,50.23.0.0/16
   - IP-CIDR,50.97.0.0/16
+# twitch
+  - DOMAIN-SUFFIX,ext-twitch.tv
+  - DOMAIN-SUFFIX,jtvnw.net
+  - DOMAIN-SUFFIX,live-video.net
+  - DOMAIN-SUFFIX,ttvnw.net
+  - DOMAIN-SUFFIX,twitch-shadow.net
+  - DOMAIN-SUFFIX,twitch-shadow.net
+  - DOMAIN-SUFFIX,twitch.tv
+  - DOMAIN-SUFFIX,twitchcdn-shadow.net
+  - DOMAIN-SUFFIX,twitchcdn.net
+  - DOMAIN-SUFFIX,twitchsvc-staging.tech
+  - DOMAIN-SUFFIX,twitchsvc.net
