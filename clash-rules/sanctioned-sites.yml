@@ -1,8 +1,7 @@
 # Sanctioned sites(They aren't blocked from the gov but you cann't access them from iran)
 payload:
-## > Spotify
+# Spotify
   - PROCESS-NAME,com.spotify.music
-  - USER-AGENT,Spotify*
   - DOMAIN-SUFFIX,audio-ak-spotify-com.akamaized.net
   - DOMAIN-SUFFIX,byspotify.com
   - DOMAIN-SUFFIX,heads4-ak-spotify-com.akamaized.net
