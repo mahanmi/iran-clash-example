@@ -2332,16 +2332,4 @@ payload:
  - DOMAIN-SUFFIX,rr6.sn-npoeen7d.googlevideo.com
  - DOMAIN-SUFFIX,rr6---sn-npoeen7k.googlevideo.com
  - DOMAIN-SUFFIX,rr6---sn-npoeene7.googlevideo.com
- - DOMAIN-SUFFIX,scribe.logs.roku.com
- - DOMAIN-SUFFIX,signaler-pa.youtube.com
- - DOMAIN-SUFFIX,studio.youtube.com
- - DOMAIN-SUFFIX,suggestqueries-clients6.youtube.com
- - DOMAIN-SUFFIX,s.youtube.com
- - DOMAIN-SUFFIX,s.ytimg.com
- - DOMAIN-SUFFIX,www.youtube.com
- - DOMAIN-SUFFIX,youtube.com
- - DOMAIN-SUFFIX,youtube.fandom.com
- - DOMAIN-SUFFIX,youtube.googleapis.com
- - DOMAIN-SUFFIX,youtubei.googleapis.com
- - DOMAIN-SUFFIX,ytimg.googleusercontent.com
- - DOMAIN-SUFFIX,ytimg.l.google.com
+ - DOMAIN-SUFFIX,ade.googlesyndication.com
