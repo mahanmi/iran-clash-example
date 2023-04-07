@@ -50,9 +50,10 @@ proxy-groups:
   - REJECT
   type: select
 - name: "♻️ Automatic"
-  type: fallback
-  url: 'https://youtube.com'
-  interval: 300
+  type: url-test
+  url: http://www.gstatic.com/generate_204
+  interval: 900
+  tolrenace: 50
   proxies:
   - "YOUR_PROXY_NAME"
   strategy: consistent-hashing
