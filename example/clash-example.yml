@@ -3,20 +3,6 @@ allow-lan: false
 log-level: info
 ipv6: false
 mode: rule
-dns:
-  enable: true
-  use-hosts: true
-  ipv6: false
-  enhanced-mode: fake-ip
-  fake-ip-range: 198.18.0.1/16
-  listen: 127.0.0.1:6868
-  default-nameserver:
-    - 1.1.1.1
-    - 8.8.8.8
-    - 1.0.0.1
-  nameserver:
-    - 8.8.8.8
-    - 1.1.1.1
 proxies:
 YOU HAVE TO FILL HERE WITH YOUR PROXY LIST THAT YOU HAVE MADE
 USE THE EXAMPLES 
@@ -70,12 +56,6 @@ rule-providers:
     path: ./ruleset/iran.yaml
     type: http
     url: https://github.com/bootmortis/iran-hosted-domains/releases/latest/download/clash_rules.yaml
-  ads-sites:
-    behavior: classical
-    interval: 432000
-    path: ./ruleset/ad-sites.yaml
-    type: http
-    url: https://raw.githubusercontent.com/mahanmi/iran-clash-example/main/clash-rules/ads-sites.yml
   sanctioned-sites:
     behavior: classical
     interval: 432000
@@ -89,5 +69,4 @@ rules:
 - GEOIP,IR,OnIranSites
 - DOMAIN-SUFFIX,.ir,OnIranSites
 - RULE-SET,iran-sites,OnIranSites
-- RULE-SET,ads-sites,REJECT
 - MATCH,General
