@@ -27,7 +27,6 @@ payload:
   - DOMAIN-SUFFIX,epicgames.dev
   - DOMAIN-SUFFIX,epicgames.net
   - DOMAIN-SUFFIX,unrealengine.com
-# SoundCloud
-  - DOMAIN-SUFFIX,p-cdn.us
-  - DOMAIN-SUFFIX,sndcdn.com
-  - DOMAIN-SUFFIX,soundcloud.com
+# Clash Of Clans
+  - DOMAIN-SUFFIX,clashofclans.com
+  - DOMAIN-SUFFIX,supercell.com
