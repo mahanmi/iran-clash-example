@@ -1,0 +1,125 @@
+mixed-port: 7890
+allow-lan: false
+log-level: info
+secret: 
+external-controller: 127.0.0.1:9090
+ipv6: false
+mode: rule
+dns:
+  default-nameserver:
+    - 1.1.1.1
+    - 1.0.0.1
+    - 8.8.8.8
+    - 8.8.4.4
+  nameserver:
+    - 1.1.1.1
+    - 1.0.0.1
+    - 8.8.8.8
+    - 8.8.4.4
+proxies:
+{% for proxy in conf.proxies %}
+- {{ proxy | yaml | indent(2) }}
+  benchmark-url: http://www.gstatic.com/generate_204
+  benchmark-timeout: 5
+  skip-cert-verify: true
+  alpn:
+   - http/1.1
+{% endfor %}
+proxy-groups:
+- name: Proxy
+  icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Proxy.png
+  proxies:
+  - "♻️ Automatic"
+  {{ proxy_remarks | yaml | indent(2) }}
+  type: select
+- interval: 300
+  name: OnBlockedSites
+  icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Reject.png
+  proxies:
+  - Proxy
+  - DIRECT
+  type: select
+- interval: 300
+  name: OnSanctionedSites
+  icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Area.png
+  proxies:
+  - Proxy
+  - DIRECT
+  type: select
+- name: Global
+  icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Global.png
+  proxies:
+  - Proxy
+  - DIRECT
+  type: select
+- interval: 300
+  icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/AdBlack.png
+  name: OnAds
+  proxies:
+  - REJECT
+  - Global
+  type: select
+- interval: 300
+  icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Direct.png
+  name: OnIranSites
+  proxies:
+  - DIRECT
+  - REJECT
+  type: select
+- interval: 300
+  icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Apple_2.png
+  name: Apple
+  proxies:
+  - DIRECT
+  - Global
+  type: select
+- name: "♻️ Automatic"
+  icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Auto.png
+  type: url-test
+  url: http://www.gstatic.com/generate_204
+  interval: 300
+  tolrenace: 50
+  proxies:
+  {{ proxy_remarks | yaml | indent(2) }}
+  strategy: consistent-hashing
+rule-providers:
+  blocked-sites:
+    type: http
+    behavior: classical
+    interval: 86400
+    path: ./ruleset/blocked-sites.yaml
+    url: https://github.com/mahanmi/iran-clash-example/releases/latest/download/blocked-sites.yaml
+  iran-sites:
+    type: http
+    behavior: classical
+    interval: 86400
+    path: ./ruleset/iran.yaml
+    url: https://github.com/bootmortis/iran-hosted-domains/releases/latest/download/clash_rules.yaml
+  sanctioned-sites:
+    type: http
+    behavior: classical
+    interval: 86400
+    path: ./ruleset/sactioned-sites.yaml
+    url: https://github.com/mahanmi/iran-clash-example/releases/latest/download/sanctioned-sites.yaml
+  ads-sites:
+    type: http
+    behavior: classical
+    interval: 86400
+    path: ./ruleset/ads-sites.yaml
+    url: https://github.com/mahanmi/iran-clash-example/releases/latest/download/ads-sites.yaml
+  apple-sites:
+    type: http
+    behavior: classical
+    interval: 3600
+    path: ./ruleset/apple-sites.yaml
+    url: https://github.com/mahanmi/iran-clash-example/releases/latest/download/apple-sites.yaml
+rules:
+- RULE-SET,blocked-sites,OnBlockedSites
+- IP-CIDR,10.10.34.0/24,OnBlockedSites
+- RULE-SET,apple-sites,DIRECT
+- RULE-SET,sanctioned-sites,OnSanctionedSites
+- DOMAIN-SUFFIX,.ir,OnIranSites
+- GEOIP,IR,OnIranSites
+- RULE-SET,iran-sites,OnIranSites
+- RULE-SET,ads-sites,OnAds
+- MATCH,Global
