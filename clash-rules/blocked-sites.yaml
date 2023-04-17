@@ -60,7 +60,7 @@ payload:
   - DOMAIN-KEYWORD,instagram 
   - DOMAIN-KEYWORD,whatsapp
   - DOMAIN-KEYWORD,facebook
-  - DOMMAIN-SUFFIX,ig.me
+  - DOMAIN-SUFFIX,ig.me
   - DOMAIN-SUFFIX,cdninstagram.com
   - DOMAIN-SUFFIX,instagram.com
   - DOMAIN-SUFFIX,instanthq.com
