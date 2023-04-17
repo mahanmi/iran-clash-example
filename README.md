@@ -36,7 +36,7 @@
 از فولدر [proxy-example](https://github.com/mahanmi/iran-clash-example/tree/main/example/proxy-example) پروتکل مد نظر خود را انتخاب کنید و طبق آموزش تکمیل کنید.
 برای مثال من از vmess-ws-tls  استفاده میکنم
 
-<font size=+1><b>توجه داشته باشید که کلش از پروتوکل vless پشتیبانی نمیکنه<b></font>
+<h3>توجه داشته باشید که کلش از پروتکل vless پشتیبانی نمیکنه</h6>
 <p align="center">
   <a href="https://github.com/mahanmi/iran-clash-example" target="_blank" rel="noopener noreferrer">
     <picture>
