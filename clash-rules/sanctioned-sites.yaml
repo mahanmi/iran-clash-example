@@ -30,3 +30,7 @@ payload:
 # Clash Of Clans
   - DOMAIN-SUFFIX,clashofclans.com
   - DOMAIN-SUFFIX,supercell.com
+# OpenAI:ChatGPT
+  - DOMAIN-SUFFIX,openai.com
+  - DOMAIN-SUFFIX,azurefd.net
+  - DOMAIN-SUFFIX,imgix.net
