@@ -2,7 +2,7 @@ mixed-port: 7890
 allow-lan: false
 log-level: info
 secret: 
-ipv6: false
+ipv6: true
 mode: rule
 dns:
   default-nameserver:
@@ -18,11 +18,12 @@ dns:
 proxies:
 {% for proxy in conf.proxies %}
 - {{ proxy | yaml | indent(2) }}
-  benchmark-url: http://www.gstatic.com/generate_204
+  benchmark-url: https://api.telegram.org/robots.txt
   benchmark-timeout: 5
   skip-cert-verify: true
   alpn:
    - http/1.1
+   - h2
 {% endfor %}
 proxy-groups:
 - name: Proxy
@@ -31,13 +32,13 @@ proxy-groups:
   - "♻️ Automatic"
   {{ proxy_remarks | yaml | indent(2) }}
   type: select
-- name: OnBlockedSites
-  interval: 60
-  icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Reject.png
-  proxies:
-  - Proxy
-  - DIRECT
-  type: select
+#- name: OnBlockedSites
+#  interval: 60
+#  icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Reject.png
+#  proxies:
+#  - Proxy
+#  - DIRECT
+#  type: select
 - name: OnSanctionedSites
   interval: 60
   icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Area.png
@@ -58,13 +59,13 @@ proxy-groups:
   - REJECT
   - Global
   type: select
-- name: OnIranSites
-  interval: 60
-  icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Direct.png
-  proxies:
-  - DIRECT
-  - REJECT
-  type: select
+#- name: OnIranSites
+#  interval: 60
+#  icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Direct.png
+#  proxies:
+#  - DIRECT
+#  - REJECT
+#  type: select
 - name: Apple
   interval: 60
   icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Apple_2.png
@@ -75,37 +76,58 @@ proxy-groups:
 - name: "♻️ Automatic"
   icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Auto.png
   type: url-test
-  url: http://www.gstatic.com/generate_204
+  url: https://api.telegram.org/robots.txt
   interval: 60
   tolrenace: 50
   proxies:
   {{ proxy_remarks | yaml | indent(2) }}
   strategy: consistent-hashing
 rule-providers:
+  LocalAreaNetwork:
+    type: http
+    behavior: classical
+    interval: 7200
+    path: ./ruleset/LocalAreaNetwork.yaml
+    url: https://github.com/mahanmi/iran-clash-example/releases/latest/download/LocalAreaNetwork.yaml
   blocked-sites:
     type: http
     behavior: classical
     interval: 7200
     path: ./ruleset/blocked-sites.yaml
     url: https://github.com/mahanmi/iran-clash-example/releases/latest/download/blocked-sites.yaml
+  blocked-sites-all:
+    type: http
+    behavior: domain
+    format: text
+    interval: 7200
+    path: ./ruleset/blocked-sites-all.txt
+    url: https://github.com/mahanmi/iran-clash-example/releases/latest/download/blocked-sites-all.txt
   iran-sites:
     type: http
-    behavior: classical
+    behavior: domain
+    format: text
     interval: 7200
-    path: ./ruleset/iran.yaml
-    url: https://github.com/bootmortis/iran-hosted-domains/releases/latest/download/clash_rules.yaml
+    path: ./ruleset/iran-sites.txt
+    url: "https://github.com/bootmortis/iran-hosted-domains/releases/latest/download/clash_rules_other.txt"
+  iran-ads:
+    type: http
+    format: text
+    behavior: domain
+    url: "https://github.com/bootmortis/iran-hosted-domains/releases/latest/download/clash_rules_ads.txt"
+    path: /ruleset/iran_ads.txt
+    interval: 7200
   sanctioned-sites:
     type: http
     behavior: classical
     interval: 7200
     path: ./ruleset/sactioned-sites.yaml
     url: https://github.com/mahanmi/iran-clash-example/releases/latest/download/sanctioned-sites.yaml
-  ads-sites:
-    type: http
-    behavior: classical
-    interval: 7200
-    path: ./ruleset/ads-sites.yaml
-    url: https://github.com/mahanmi/iran-clash-example/releases/latest/download/ads-sites.yaml
+  #ads-sites:
+  #  type: http
+  #  behavior: classical
+  #  interval: 7200
+  #  path: ./ruleset/ads-sites.yaml
+  #  url: https://github.com/mahanmi/iran-clash-example/releases/latest/download/ads-sites.yaml
   apple-sites:
     type: http
     behavior: classical
@@ -113,12 +135,14 @@ rule-providers:
     path: ./ruleset/apple-sites.yaml
     url: https://github.com/mahanmi/iran-clash-example/releases/latest/download/apple-sites.yaml
 rules:
-- RULE-SET,blocked-sites,OnBlockedSites
-- IP-CIDR,10.10.34.0/24,OnBlockedSites
-- RULE-SET,apple-sites,DIRECT
+- RULE-SET,LocalAreaNetwork,DIRECT
+- RULE-SET,blocked-sites,Proxy
+- IP-CIDR,10.10.34.0/24,Proxy
+- RULE-SET,blocked-sites-all,Proxy
+- RULE-SET,apple-sites,Apple
 - RULE-SET,sanctioned-sites,OnSanctionedSites
-- DOMAIN-SUFFIX,.ir,OnIranSites
-- GEOIP,IR,OnIranSites
-- RULE-SET,iran-sites,OnIranSites
-- RULE-SET,ads-sites,OnAds
+- RULE-SET,iran-ads,OnAds
+- DOMAIN-SUFFIX,ir,DIRECT
+- GEOIP,IR,DIRECT
+- RULE-SET,iran-sites,DIRECT
 - MATCH,Global
