@@ -130,7 +130,8 @@ rule-providers:
   #  url: https://github.com/mahanmi/iran-clash-example/releases/latest/download/ads-sites.yaml
   apple-sites:
     type: http
-    behavior: classical
+    behavior: domain
+    format: text
     interval: 7200
     path: ./ruleset/apple-sites.txt
     url: https://github.com/mahanmi/iran-clash-example/releases/latest/download/apple-sites.txt
