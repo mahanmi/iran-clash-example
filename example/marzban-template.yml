@@ -132,8 +132,8 @@ rule-providers:
     type: http
     behavior: classical
     interval: 7200
-    path: ./ruleset/apple-sites.yaml
-    url: https://github.com/mahanmi/iran-clash-example/releases/latest/download/apple-sites.yaml
+    path: ./ruleset/apple-sites.txt
+    url: https://github.com/mahanmi/iran-clash-example/releases/latest/download/apple-sites.txt
 rules:
 - RULE-SET,LocalAreaNetwork,DIRECT
 - RULE-SET,blocked-sites,Proxy
