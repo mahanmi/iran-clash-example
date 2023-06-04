@@ -83,12 +83,12 @@ proxy-groups:
   {{ proxy_remarks | yaml | indent(2) }}
   strategy: consistent-hashing
 rule-providers:
-  LocalAreaNetwork:
-    type: http
-    behavior: classical
-    interval: 7200
-    path: ./ruleset/LocalAreaNetwork.yaml
-    url: https://github.com/mahanmi/iran-clash-example/releases/latest/download/LocalAreaNetwork.yaml
+#  LocalAreaNetwork:
+#    type: http
+#    behavior: classical
+#    interval: 7200
+#    path: ./ruleset/LocalAreaNetwork.yaml
+#    url: https://github.com/mahanmi/iran-clash-example/releases/latest/download/LocalAreaNetwork.yaml
   blocked-sites:
     type: http
     behavior: classical
@@ -145,5 +145,5 @@ rules:
 - DOMAIN-SUFFIX,ir,DIRECT
 - GEOIP,IR,DIRECT
 - RULE-SET,iran-sites,DIRECT
-- RULE-SET,LocalAreaNetwork,DIRECT
+#- RULE-SET,LocalAreaNetwork,DIRECT
 - MATCH,Global
