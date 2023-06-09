@@ -11,12 +11,7 @@
 ## فهرست مطالب
 - [مقدمه](#مقدمه)
   - [قابلیت ها](#قابلیت-ها)
-- [قوانین (RULE) های استفاده شده](#قوانین-rule-های-استفاده-شده)
-  - [سایت های لوکال(LocalAreaNetwork)](#سایت-های-لوکالlocalareanetwork)
-  - [سایت های فیلتر(Blocked-Sites)](#سایت-های-فیلترblocked-sites)
-  - [سایت های ایرانی(Iran-Sites)](#سایت-های-ایرانیiran-sites)
-  - [سایت های تحریم(Sactioned-Sites)](#سایت-های-تحریمsactioned-sites)
-  - [سایت های اپل(Apple-Sites)](#سایت-های-اپلapple-sites)
+  - [قوانین (RULE) های استفاده شده](#قوانین-rule-های-استفاده-شده)
 - [اضافه کردن تمپلیت کلش به مرزبان](#اضافه-کردن-تمپلیت-کلش-به-مرزبان)
 - [آموزش ساخت کانفیگ](#آموزش-ساخت-کانفیگ)
   - [ساخت پروکسی](#ساخت-پروکسی)
@@ -33,8 +28,9 @@
 - دور زدن تحریم
 - قابلیت تونل کردن کل سیستم(TUN)
 
-# قوانین (RULE) های استفاده شده
-## سایت های لوکال(LocalAreaNetwork)
+## قوانین (RULE) های استفاده شده
+- سایت های لوکال(LocalAreaNetwork)
+
 Credit : https://github.com/blackmatrix7/ios_rule_script
 ```yaml
 LocalAreaNetwork:
@@ -44,7 +40,8 @@ LocalAreaNetwork:
     path: ./ruleset/LocalAreaNetwork.yaml
     url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Lan/Lan.yaml
 ```
-##  سایت های فیلتر(Blocked-Sites)
+- سایت های فیلتر(Blocked-Sites)
+
 Credit : https://github.com/filteryab/ir-blocked-domain
 ```yaml
 blocked-sites:
@@ -61,7 +58,8 @@ blocked-sites:
     path: ./ruleset/blocked-sites-all.txt
     url: https://github.com/mahanmi/iran-clash-example/releases/latest/download/blocked-sites-all.txt
 ```
-## سایت های ایرانی(Iran-Sites)
+- سایت های ایرانی(Iran-Sites)
+
 Credit : https://github.com/bootmortis/iran-hosted-domains
 ```yaml
 iran-sites:
@@ -79,7 +77,7 @@ iran-sites:
     path: /ruleset/iran_ads.txt
     interval: 7200
 ```
-## سایت های تحریم(Sactioned-Sites)
+- سایت های تحریم(Sactioned-Sites)
 ```yaml
 sanctioned-sites:
     type: http
@@ -88,7 +86,7 @@ sanctioned-sites:
     path: ./ruleset/sactioned-sites.yaml
     url: https://github.com/mahanmi/iran-clash-example/releases/latest/download/sanctioned-sites.yaml
 ```
-## سایت های اپل(Apple-Sites)
+- سایت های اپل(Apple-Sites)
 ```yaml
 apple-sites:
     type: http
