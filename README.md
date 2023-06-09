@@ -29,9 +29,13 @@
 - قابلیت تونل کردن کل سیستم(TUN)
 
 ## قوانین (RULE) های استفاده شده
-- سایت های لوکال(LocalAreaNetwork)
 
-Credit : https://github.com/blackmatrix7/ios_rule_script
+<details markdown="1">
+<summary><h3>سایت های داخلی(LocalAreaNetwork)
+</h3></summary>
+
+Credit : [blackmatrix7/ios_rule_script](https://github.com/blackmatrix7/ios_rule_script)
+
 ```yaml
 LocalAreaNetwork:
     type: http
@@ -40,9 +44,13 @@ LocalAreaNetwork:
     path: ./ruleset/LocalAreaNetwork.yaml
     url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Lan/Lan.yaml
 ```
-- سایت های فیلتر(Blocked-Sites)
+</details>
+<details markdown="1">
+<summary><h3>سایت های فیلتر(Blocked-Sites)
+</h3></summary>
 
-Credit : https://github.com/filteryab/ir-blocked-domain
+Credit : [filteryab/ir-blocked-domain](https://github.com/filteryab/ir-blocked-domain)
+
 ```yaml
 blocked-sites:
     type: http
@@ -58,9 +66,13 @@ blocked-sites:
     path: ./ruleset/blocked-sites-all.txt
     url: https://github.com/mahanmi/iran-clash-example/releases/latest/download/blocked-sites-all.txt
 ```
-- سایت های ایرانی(Iran-Sites)
+</details>
+<details markdown="1">
+<summary><h3>سایت های ایرانی(Iran-Sites)
+</h3></summary>
 
-Credit : https://github.com/bootmortis/iran-hosted-domains
+Credit : [bootmortis/iran-hosted-domains](https://github.com/bootmortis/iran-hosted-domains)
+
 ```yaml
 iran-sites:
     type: http
@@ -77,7 +89,11 @@ iran-sites:
     path: /ruleset/iran_ads.txt
     interval: 7200
 ```
-- سایت های تحریم(Sactioned-Sites)
+</details>
+<details markdown="1">
+<summary><h3>سایت های تحریم(Sactioned-Sites)
+</h3></summary>
+
 ```yaml
 sanctioned-sites:
     type: http
@@ -86,7 +102,11 @@ sanctioned-sites:
     path: ./ruleset/sactioned-sites.yaml
     url: https://github.com/mahanmi/iran-clash-example/releases/latest/download/sanctioned-sites.yaml
 ```
-- سایت های اپل(Apple-Sites)
+</details>
+<details markdown="1">
+<summary><h3>سایت های اپل(Apple-Sites)
+</h3></summary>
+
 ```yaml
 apple-sites:
     type: http
@@ -96,6 +116,9 @@ apple-sites:
     path: ./ruleset/apple-sites.txt
     url: https://github.com/mahanmi/iran-clash-example/releases/latest/download/apple-sites.txt
 ```
+</details>
+
+
 # اضافه کردن تمپلیت کلش به مرزبان
 دانلود تمپلیت روی سرور با کد زیر
 ```
