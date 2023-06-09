@@ -8,13 +8,16 @@
 </p>
 <h1 align="center"/>Clash Config Example for Iran</h1>
 
-<p align="center">
-    Special Thanks to <a href="https://github.com/hiddify/hiddify-config">Hiddify</a> and <a href="https://github.com/bootmortis/iran-hosted-domains">Bootmortis</a> for providing hosts
-</p>
-
 ## فهرست مطالب
 - [مقدمه](#مقدمه)
   - [قابلیت ها](#قابلیت-ها)
+- [قوانین (RULE) های استفاده شده](#قوانین-rule-های-استفاده-شده)
+  - [سایت های لوکال(LocalAreaNetwork)](#سایت-های-لوکالlocalareanetwork)
+  - [سایت های فیلتر(Blocked-Sites)](#سایت-های-فیلترblocked-sites)
+  - [سایت های ایرانی(Iran-Sites)](#سایت-های-ایرانیiran-sites)
+  - [سایت های تحریم(Sactioned-Sites)](#سایت-های-تحریمsactioned-sites)
+  - [سایت های اپل(Apple-Sites)](#سایت-های-اپلapple-sites)
+- [اضافه کردن تمپلیت کلش به مرزبان](#اضافه-کردن-تمپلیت-کلش-به-مرزبان)
 - [آموزش ساخت کانفیگ](#آموزش-ساخت-کانفیگ)
   - [ساخت پروکسی](#ساخت-پروکسی)
   - [اضافه کردن پروکسی به تمپلیت کلش](#اضافه-کردن-پروکسی-به-تمپلیت-کلش)
@@ -30,6 +33,84 @@
 - دور زدن تحریم
 - قابلیت تونل کردن کل سیستم(TUN)
 
+# قوانین (RULE) های استفاده شده
+## سایت های لوکال(LocalAreaNetwork)
+Credit : https://github.com/blackmatrix7/ios_rule_script
+```yaml
+LocalAreaNetwork:
+    type: http
+    behavior: classical
+    interval: 7200
+    path: ./ruleset/LocalAreaNetwork.yaml
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Lan/Lan.yaml
+```
+##  سایت های فیلتر(Blocked-Sites)
+Credit : https://github.com/filteryab/ir-blocked-domain
+```yaml
+blocked-sites:
+    type: http
+    behavior: classical
+    interval: 7200
+    path: ./ruleset/blocked-sites.yaml
+    url: https://github.com/mahanmi/iran-clash-example/releases/latest/download/blocked-sites.yaml
+  blocked-sites-all:
+    type: http
+    behavior: domain
+    format: text
+    interval: 7200
+    path: ./ruleset/blocked-sites-all.txt
+    url: https://github.com/mahanmi/iran-clash-example/releases/latest/download/blocked-sites-all.txt
+```
+## سایت های ایرانی(Iran-Sites)
+Credit : https://github.com/bootmortis/iran-hosted-domains
+```yaml
+iran-sites:
+    type: http
+    behavior: domain
+    format: text
+    interval: 7200
+    path: ./ruleset/iran-sites.txt
+    url: "https://github.com/bootmortis/iran-hosted-domains/releases/latest/download/clash_rules_other.txt"
+  iran-ads:
+    type: http
+    format: text
+    behavior: domain
+    url: "https://github.com/bootmortis/iran-hosted-domains/releases/latest/download/clash_rules_ads.txt"
+    path: /ruleset/iran_ads.txt
+    interval: 7200
+```
+## سایت های تحریم(Sactioned-Sites)
+```yaml
+sanctioned-sites:
+    type: http
+    behavior: classical
+    interval: 7200
+    path: ./ruleset/sactioned-sites.yaml
+    url: https://github.com/mahanmi/iran-clash-example/releases/latest/download/sanctioned-sites.yaml
+```
+## سایت های اپل(Apple-Sites)
+```yaml
+apple-sites:
+    type: http
+    behavior: domain
+    format: text
+    interval: 7200
+    path: ./ruleset/apple-sites.txt
+    url: https://github.com/mahanmi/iran-clash-example/releases/latest/download/apple-sites.txt
+```
+# اضافه کردن تمپلیت کلش به مرزبان
+دانلود تمپلیت روی سرور با کد زیر
+```
+sudo wget -P /var/lib/marzban/templates/clash/  https://github.com/mahanmi/iran-clash-example/releases/latest/download/marzban-template.yml
+```
+سپس در فایل .env مشخصات زیر رو اضافه کنید
+```
+CUSTOM_TEMPLATES_DIRECTORY="/var/lib/marzban/templates/"
+CLASH_SUBSCRIPTION_TEMPLATE="clash/marzban-template.yml"
+```
+از کانفیگ های پیشرفته کلش  خود لذت ببرید.
+
+برای آپدیت تمپلیت کافیست فقط همون کامند اول رو دوباره ران کنید.
 # آموزش ساخت کانفیگ
 برای شروع باید از قبل کانفیگ v2ray داشته باشید
 ## ساخت پروکسی
@@ -139,4 +220,3 @@ proxy-groups:
   strategy: consistent-hashing
 ```
 حالا فایل رو با فرمت clash.yaml سیو کنید و داخل نرم افزار کلشتون ایمپورتش کنید.
-
