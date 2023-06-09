@@ -107,6 +107,8 @@ sanctioned-sites:
 <summary><h3>سایت های اپل(Apple-Sites)
 </h3></summary>
 
+Credit : [blackmatrix7/ios_rule_script](https://github.com/blackmatrix7/ios_rule_script)
+
 ```yaml
 apple-sites:
     type: http
@@ -114,7 +116,7 @@ apple-sites:
     format: text
     interval: 7200
     path: ./ruleset/apple-sites.txt
-    url: https://github.com/mahanmi/iran-clash-example/releases/latest/download/apple-sites.txt
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Apple/Apple_Domain.txt
 ```
 </details>
 
