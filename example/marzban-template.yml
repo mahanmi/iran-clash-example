@@ -15,16 +15,12 @@ dns:
     - 8.8.4.4
     - 1.1.1.1
     - 1.0.0.1
+    - https://dns.google/dns-query
 proxies:
 {% for proxy in conf.proxies %}
 - {{ proxy | yaml | indent(2) }}
-  benchmark-url: https://api.telegram.org/robots.txt
+  benchmark-url: http://www.gstatic.com/generate_204
   benchmark-timeout: 5
-  skip-cert-verify: true
-  alpn:
-   - http/1.1
-   - h2
-{% endfor %}
 proxy-groups:
 - name: Proxy
   icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Proxy.png
@@ -76,19 +72,19 @@ proxy-groups:
 - name: "♻️ Automatic"
   icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Auto.png
   type: url-test
-  url: https://api.telegram.org/robots.txt
+  url: http://www.gstatic.com/generate_204
   interval: 60
   tolrenace: 50
   proxies:
   {{ proxy_remarks | yaml | indent(2) }}
   strategy: consistent-hashing
 rule-providers:
-#  LocalAreaNetwork:
-#    type: http
-#    behavior: classical
-#    interval: 7200
-#    path: ./ruleset/LocalAreaNetwork.yaml
-#    url: https://github.com/mahanmi/iran-clash-example/releases/latest/download/LocalAreaNetwork.yaml
+  LocalAreaNetwork:
+    type: http
+    behavior: classical
+    interval: 7200
+    path: ./ruleset/LocalAreaNetwork.yaml
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Lan/Lan.yaml
   blocked-sites:
     type: http
     behavior: classical
@@ -145,5 +141,5 @@ rules:
 - DOMAIN-SUFFIX,ir,DIRECT
 - GEOIP,IR,DIRECT
 - RULE-SET,iran-sites,DIRECT
-#- RULE-SET,LocalAreaNetwork,DIRECT
+- RULE-SET,LocalAreaNetwork,DIRECT
 - MATCH,Global
